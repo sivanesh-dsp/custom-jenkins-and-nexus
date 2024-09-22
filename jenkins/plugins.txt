@@ -2,4 +2,5 @@ git
 workflow-aggregator
 blueocean
 docker-workflow
+nexus-artifact-uploader
 configuration-as-code
