@@ -5,14 +5,14 @@ FROM alpine:latest AS builder
 RUN apk add --no-cache openjdk11-jre wget git
 
 # Download and install Jenkins
-ENV JENKINS_VERSION=2.401.3
+ENV JENKINS_VERSION=2.462.2
 RUN wget -q -O /tmp/jenkins.war http://mirrors.jenkins.io/war-stable/${JENKINS_VERSION}/jenkins.war
 
 # Stage 2: Create the final image
 FROM alpine:latest
 
 # Install necessary runtime dependencies
-RUN apk add --no-cache openjdk11-jre curl bash ttf-dejavu fontconfig
+RUN apk add --no-cache openjdk11-jre curl bash ttf-dejavu fontconfig git
 
 # Create Jenkins user and group
 RUN addgroup -S jenkins && adduser -S jenkins -G jenkins
